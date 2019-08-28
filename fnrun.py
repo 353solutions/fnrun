@@ -44,8 +44,3 @@ def run_func(file_name, name='main', args=None, kw=None, ctx=None):
         val = fn(*args, **kw)
 
     return val, stdout.getvalue()
-
-
-val, out = run_func('normalize.py', 'norm', [3], ctx={'factor': 10})
-print('val:', val)
-print('out:', out)
