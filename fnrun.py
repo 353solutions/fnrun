@@ -20,12 +20,14 @@ def load_module(file_name):
     """Load module from file name"""
     mod_name = file_module_name(file_name)
     spec = imputil.spec_from_file_location(mod_name, file_name)
+    if spec is None:
+        raise ImportError(f'cannot import from {file_name!r}')
     mod = imputil.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
 
 
-def run_func(file_name, name='main', args=None, kw=None, ctx=None):
+def run_func(file_name, name='main', args=None, kw=None, *, ctx=None):
     """Run a function from file with args and kw.
 
     ctx values are injected to module during function run time.
