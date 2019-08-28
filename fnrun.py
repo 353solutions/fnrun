@@ -30,7 +30,7 @@ def run_func(file_name, name='main', args=None, kw=None, ctx=None):
     ctx values are injected to module during function run time.
     """
     mod = load_module(file_name)
-    fn = getattr(mod, name)  # Might raise if name not found
+    fn = getattr(mod, name)  # Will raise if name not found
 
     if ctx is not None:
         for attr, value in ctx.items():
