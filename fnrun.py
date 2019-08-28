@@ -17,6 +17,7 @@ def file_module_name(file_name):
 
 
 def load_module(file_name):
+    """Load module from file name"""
     mod_name = file_module_name(file_name)
     spec = imputil.spec_from_file_location(mod_name, file_name)
     mod = imputil.module_from_spec(spec)
